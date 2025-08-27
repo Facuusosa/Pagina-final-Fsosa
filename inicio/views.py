@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse    
+from inicio.models import Sahumerio
 
 def inicio(request):
-    return render(request, r"C:\Users\Facun\OneDrive\Escritorio\Entregafinalfsosa\inicio.html")
+    return render(request, "inicio.html")
 
-    # return HttpResponse("<h1>Hola, este es el inicio de la pagina<h1>")
+def crear_sahumerio(request, descripcion, precio):
+    Sahumerio.objects.create(descripcion=descripcion, precio=precio)
+    return render(request, "crear_sahumerio.html")
 
